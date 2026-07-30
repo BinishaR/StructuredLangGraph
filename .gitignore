@@ -1,0 +1,29 @@
+# Virtual environment — never upload
+venv/
+env/
+.venv/
+
+# API keys — never upload
+.env
+.env.local
+.env.production
+
+# Python cache files — not needed
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# VS Code settings — optional, your choice
+.vscode/
+
+# vectorStore
+chroma_db/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/

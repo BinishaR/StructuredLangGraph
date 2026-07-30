@@ -1,0 +1,160 @@
+2026-07-30 13:57:42 | INFO     | laxmi_bank:get_bank_retriever:19 - Found existing vectorstore at './chroma_db', loading it.
+2026-07-30 13:57:46 | INFO     | laxmi_bank:get_bank_retriever:26 - Retriever is ready.
+2026-07-30 13:57:46 | INFO     | laxmi_bank:build_graph:15 - Building LangGraph agent graph...
+2026-07-30 13:57:46 | INFO     | laxmi_bank:build_graph:38 - Graph compiled successfully
+2026-07-30 13:59:12 | INFO     | laxmi_bank:ask_question:32 - POST /ask | session_id=default-session | question='how the mobile money works?'
+2026-07-30 13:59:12 | INFO     | laxmi_bank:ask_agent:52 - ask_agent called | session_id=default-session | question='how the mobile money works'
+2026-07-30 13:59:12 | INFO     | laxmi_bank:agent_node:49 - agent_node invoked | history_length=1
+2026-07-30 13:59:13 | INFO     | laxmi_bank:agent_node:54 - agent_node requested tool call(s): [{'name': 'search_bank_faq', 'args': {'query': 'mobile money how it works features registration transfers limits'}, 'id': 'call_jgQjktOXWfgZJUmSrBIylyCF', 'type': 'tool_call'}]
+2026-07-30 13:59:13 | INFO     | laxmi_bank:should_continue:70 - should_continue -> routing to 'tools'
+2026-07-30 13:59:13 | INFO     | laxmi_bank:search_bank_faq:20 - search_bank_faq called | query='mobile money how it works features registration transfers limits'
+2026-07-30 13:59:33 | WARNING  | laxmi_bank:search_bank_faq:25 - No FAQ results found for query: 'mobile money how it works features registration transfers limits'
+2026-07-30 13:59:33 | INFO     | laxmi_bank:agent_node:49 - agent_node invoked | history_length=3
+2026-07-30 13:59:34 | INFO     | laxmi_bank:agent_node:56 - agent_node produced final answer: Sorry, I couldn’t find any relevant FAQ information about how the Mobile Money service works.
+
+If you’d like, I can still help you by searching for a specific topic such as:
+- registration
+- transfers
+2026-07-30 13:59:34 | INFO     | laxmi_bank:should_continue:73 - should_continue -> routing to END
+2026-07-30 13:59:34 | INFO     | laxmi_bank:ask_agent:60 - ask_agent returning answer | session_id=default-session | answer='Sorry, I couldn’t find any relevant FAQ information about how the Mobile Money service works.
+
+If you’d like, I can still help you by searching for a specific topic such as:
+- registration
+- transfers'
+2026-07-30 14:00:13 | INFO     | laxmi_bank:ask_question:32 - POST /ask | session_id=default-session | question='how the women savings account can be opened?'
+2026-07-30 14:00:13 | INFO     | laxmi_bank:ask_agent:52 - ask_agent called | session_id=default-session | question='how the women savings account can be opened'
+2026-07-30 14:00:13 | INFO     | laxmi_bank:agent_node:49 - agent_node invoked | history_length=5
+2026-07-30 14:00:15 | INFO     | laxmi_bank:agent_node:54 - agent_node requested tool call(s): [{'name': 'search_bank_faq', 'args': {'query': 'Wonder Woman Savings account opening eligibility requirements how to open'}, 'id': 'call_4tiZua0XQgWN9iSpaRf6dXAB', 'type': 'tool_call'}]
+2026-07-30 14:00:15 | INFO     | laxmi_bank:should_continue:70 - should_continue -> routing to 'tools'
+2026-07-30 14:00:15 | INFO     | laxmi_bank:search_bank_faq:20 - search_bank_faq called | query='Wonder Woman Savings account opening eligibility requirements how to open'
+2026-07-30 14:00:16 | WARNING  | laxmi_bank:search_bank_faq:25 - No FAQ results found for query: 'Wonder Woman Savings account opening eligibility requirements how to open'
+2026-07-30 14:00:16 | INFO     | laxmi_bank:agent_node:49 - agent_node invoked | history_length=7
+2026-07-30 14:00:17 | INFO     | laxmi_bank:agent_node:56 - agent_node produced final answer: Sorry, I couldn’t find any relevant FAQ information about how to open the Wonder Woman Savings account.
+
+If you want, I can still look up related details like:
+- eligibility
+- benefits
+- account featu
+2026-07-30 14:00:17 | INFO     | laxmi_bank:should_continue:73 - should_continue -> routing to END
+2026-07-30 14:00:17 | INFO     | laxmi_bank:ask_agent:60 - ask_agent returning answer | session_id=default-session | answer='Sorry, I couldn’t find any relevant FAQ information about how to open the Wonder Woman Savings account.
+
+If you want, I can still look up related details like:
+- eligibility
+- benefits
+- account featu'
+2026-07-30 14:02:29 | INFO     | laxmi_bank:get_bank_retriever:19 - Found existing vectorstore at './chroma_db', loading it.
+2026-07-30 14:02:31 | INFO     | laxmi_bank:get_bank_retriever:26 - Retriever is ready.
+2026-07-30 14:02:32 | INFO     | laxmi_bank:build_graph:15 - Building LangGraph agent graph...
+2026-07-30 14:02:32 | INFO     | laxmi_bank:build_graph:38 - Graph compiled successfully
+2026-07-30 14:09:56 | INFO     | laxmi_bank:get_bank_retriever:22 - No vectorstore found. Building it for the first time...
+2026-07-30 14:10:03 | INFO     | laxmi_bank:get_bank_retriever:26 - Retriever is ready.
+2026-07-30 14:10:03 | INFO     | laxmi_bank:build_graph:15 - Building LangGraph agent graph...
+2026-07-30 14:10:03 | INFO     | laxmi_bank:build_graph:38 - Graph compiled successfully
+2026-07-30 14:10:47 | INFO     | laxmi_bank:ask_question:32 - POST /ask | session_id=default-session | question='how the mobile money works?'
+2026-07-30 14:10:47 | INFO     | laxmi_bank:ask_agent:52 - ask_agent called | session_id=default-session | question='how the mobile money works'
+2026-07-30 14:10:47 | INFO     | laxmi_bank:agent_node:49 - agent_node invoked | history_length=1
+2026-07-30 14:10:48 | INFO     | laxmi_bank:agent_node:54 - agent_node requested tool call(s): [{'name': 'search_bank_faq', 'args': {'query': 'mobile money app how it works features transfers registration limits'}, 'id': 'call_ShjCEmWVUJrophxghoPyiWEt', 'type': 'tool_call'}]
+2026-07-30 14:10:48 | INFO     | laxmi_bank:should_continue:70 - should_continue -> routing to 'tools'
+2026-07-30 14:10:48 | INFO     | laxmi_bank:search_bank_faq:20 - search_bank_faq called | query='mobile money app how it works features transfers registration limits'
+2026-07-30 14:10:49 | INFO     | laxmi_bank:search_bank_faq:33 - search_bank_faq returned 4 result(s) for query: 'mobile money app how it works features transfers registration limits'
+2026-07-30 14:10:49 | INFO     | laxmi_bank:agent_node:49 - agent_node invoked | history_length=3
+2026-07-30 14:10:51 | INFO     | laxmi_bank:agent_node:56 - agent_node produced final answer: Mobile Money is Laxmi Sunrise Bank’s mobile banking service that lets you use banking features on your phone, including fund transfer.
+
+According to the FAQ, the transaction limits are:
+- Per transact
+2026-07-30 14:10:51 | INFO     | laxmi_bank:should_continue:73 - should_continue -> routing to END
+2026-07-30 14:10:51 | INFO     | laxmi_bank:ask_agent:60 - ask_agent returning answer | session_id=default-session | answer='Mobile Money is Laxmi Sunrise Bank’s mobile banking service that lets you use banking features on your phone, including fund transfer.
+
+According to the FAQ, the transaction limits are:
+- Per transact'
+2026-07-30 14:12:12 | INFO     | laxmi_bank:ask_question:32 - POST /ask | session_id=default-session | question='where is your bank?'
+2026-07-30 14:12:12 | INFO     | laxmi_bank:ask_agent:52 - ask_agent called | session_id=default-session | question='where is your bank'
+2026-07-30 14:12:12 | INFO     | laxmi_bank:agent_node:49 - agent_node invoked | history_length=5
+2026-07-30 14:12:13 | INFO     | laxmi_bank:agent_node:54 - agent_node requested tool call(s): [{'name': 'search_bank_faq', 'args': {'query': 'branch locations where is your bank address headquarters office locations'}, 'id': 'call_viTOv16AQ0O9iMsiYgcxom6P', 'type': 'tool_call'}]
+2026-07-30 14:12:13 | INFO     | laxmi_bank:should_continue:70 - should_continue -> routing to 'tools'
+2026-07-30 14:12:13 | INFO     | laxmi_bank:search_bank_faq:20 - search_bank_faq called | query='branch locations where is your bank address headquarters office locations'
+2026-07-30 14:12:14 | INFO     | laxmi_bank:search_bank_faq:33 - search_bank_faq returned 4 result(s) for query: 'branch locations where is your bank address headquarters office locations'
+2026-07-30 14:12:14 | INFO     | laxmi_bank:agent_node:49 - agent_node invoked | history_length=7
+2026-07-30 14:12:15 | INFO     | laxmi_bank:agent_node:56 - agent_node produced final answer: Sorry, I couldn’t find the bank’s location or branch address in the FAQ data I searched.
+
+If you’d like, I can help you with services that are available through the FAQ, or you may contact the bank’s 
+2026-07-30 14:12:15 | INFO     | laxmi_bank:should_continue:73 - should_continue -> routing to END
+2026-07-30 14:12:15 | INFO     | laxmi_bank:ask_agent:60 - ask_agent returning answer | session_id=default-session | answer='Sorry, I couldn’t find the bank’s location or branch address in the FAQ data I searched.
+
+If you’d like, I can help you with services that are available through the FAQ, or you may contact the bank’s '
+2026-07-30 14:14:14 | INFO     | laxmi_bank:ask_question:32 - POST /ask | session_id=default-session | question='who can register women's savings account?'
+2026-07-30 14:14:14 | INFO     | laxmi_bank:ask_agent:52 - ask_agent called | session_id=default-session | question='who can register womens savings account'
+2026-07-30 14:14:14 | INFO     | laxmi_bank:agent_node:49 - agent_node invoked | history_length=9
+2026-07-30 14:14:16 | INFO     | laxmi_bank:agent_node:54 - agent_node requested tool call(s): [{'name': 'search_bank_faq', 'args': {'query': "Wonder Woman Savings account eligibility who can register women's savings account"}, 'id': 'call_ZAZK9SBLqN2dBmDmyBgiILnv', 'type': 'tool_call'}]
+2026-07-30 14:14:16 | INFO     | laxmi_bank:should_continue:70 - should_continue -> routing to 'tools'
+2026-07-30 14:14:16 | INFO     | laxmi_bank:search_bank_faq:20 - search_bank_faq called | query='Wonder Woman Savings account eligibility who can register women's savings account'
+2026-07-30 14:14:16 | INFO     | laxmi_bank:search_bank_faq:33 - search_bank_faq returned 4 result(s) for query: 'Wonder Woman Savings account eligibility who can register women's savings account'
+2026-07-30 14:14:16 | INFO     | laxmi_bank:agent_node:49 - agent_node invoked | history_length=11
+2026-07-30 14:14:18 | INFO     | laxmi_bank:agent_node:56 - agent_node produced final answer: According to the FAQ, the **Wonder Woman Savings account is designed exclusively for women**. It is a specially crafted savings account by Laxmi Sunrise to help women save and achieve their financial 
+2026-07-30 14:14:18 | INFO     | laxmi_bank:should_continue:73 - should_continue -> routing to END
+2026-07-30 14:14:18 | INFO     | laxmi_bank:ask_agent:60 - ask_agent returning answer | session_id=default-session | answer='According to the FAQ, the **Wonder Woman Savings account is designed exclusively for women**. It is a specially crafted savings account by Laxmi Sunrise to help women save and achieve their financial '
+2026-07-30 14:15:50 | INFO     | laxmi_bank:ask_question:32 - POST /ask | session_id=default-session | question='what is the policy of interest?'
+2026-07-30 14:15:50 | INFO     | laxmi_bank:ask_agent:52 - ask_agent called | session_id=default-session | question='what is the policy of interest'
+2026-07-30 14:15:50 | INFO     | laxmi_bank:agent_node:49 - agent_node invoked | history_length=13
+2026-07-30 14:15:52 | INFO     | laxmi_bank:agent_node:54 - agent_node requested tool call(s): [{'name': 'search_bank_faq', 'args': {'query': 'interest policy savings account interest rates general deposit interest paid quarterly'}, 'id': 'call_fqsDFQQ3uwzCwZefKZ19eYeB', 'type': 'tool_call'}]
+2026-07-30 14:15:52 | INFO     | laxmi_bank:should_continue:70 - should_continue -> routing to 'tools'
+2026-07-30 14:15:52 | INFO     | laxmi_bank:search_bank_faq:20 - search_bank_faq called | query='interest policy savings account interest rates general deposit interest paid quarterly'
+2026-07-30 14:15:53 | INFO     | laxmi_bank:search_bank_faq:33 - search_bank_faq returned 4 result(s) for query: 'interest policy savings account interest rates general deposit interest paid quarterly'
+2026-07-30 14:15:53 | INFO     | laxmi_bank:agent_node:49 - agent_node invoked | history_length=15
+2026-07-30 14:15:54 | INFO     | laxmi_bank:agent_node:56 - agent_node produced final answer: Based on the FAQ, interest is generally **credited on a quarterly basis**, on the last day of the Nepali month **Ashadh, Ashwin, Poush, and Chaitra**.
+
+For the **Wonder Woman Savings** account specifi
+2026-07-30 14:15:54 | INFO     | laxmi_bank:should_continue:73 - should_continue -> routing to END
+2026-07-30 14:15:54 | INFO     | laxmi_bank:ask_agent:60 - ask_agent returning answer | session_id=default-session | answer='Based on the FAQ, interest is generally **credited on a quarterly basis**, on the last day of the Nepali month **Ashadh, Ashwin, Poush, and Chaitra**.
+
+For the **Wonder Woman Savings** account specifi'
+2026-07-30 14:29:41 | INFO     | laxmi_bank:get_bank_retriever:19 - Found existing vectorstore at './chroma_db', loading it.
+2026-07-30 14:29:45 | INFO     | laxmi_bank:get_bank_retriever:26 - Retriever is ready.
+2026-07-30 14:29:46 | INFO     | laxmi_bank:build_graph:15 - Building LangGraph agent graph...
+2026-07-30 14:29:46 | INFO     | laxmi_bank:build_graph:38 - Graph compiled successfully
+2026-07-30 15:53:19 | INFO     | laxmi_bank:build_graph:15 - Building LangGraph agent graph...
+2026-07-30 15:53:19 | INFO     | laxmi_bank:build_graph:38 - Graph compiled successfully
+2026-07-30 15:53:34 | INFO     | laxmi_bank:build_graph:15 - Building LangGraph agent graph...
+2026-07-30 15:53:34 | INFO     | laxmi_bank:build_graph:38 - Graph compiled successfully
+2026-07-30 15:54:53 | INFO     | laxmi_bank:build_graph:15 - Building LangGraph agent graph...
+2026-07-30 15:54:53 | INFO     | laxmi_bank:build_graph:38 - Graph compiled successfully
+2026-07-30 16:33:02 | INFO     | laxmi_bank:build_graph:15 - Building LangGraph agent graph...
+2026-07-30 16:33:02 | INFO     | laxmi_bank:build_graph:38 - Graph compiled successfully
+2026-07-30 16:35:01 | INFO     | laxmi_bank:update_vectorstore:189 - POST /update-vectorstore | authorized, starting rebuild
+2026-07-30 16:35:01 | INFO     | laxmi_bank:rebuild:89 - Rebuilding vectorstore from source CSVs...
+2026-07-30 16:35:01 | INFO     | laxmi_bank:rebuild:92 - Removing existing vectorstore at './chroma_db' before rebuild.
+2026-07-30 16:35:08 | INFO     | laxmi_bank:rebuild:99 - Vectorstore rebuilt with 180 vectors. Retriever refreshed.
+2026-07-30 16:37:31 | INFO     | laxmi_bank:ask_question:116 - POST /ask | session_id=default-session | question='how to register?'
+2026-07-30 16:37:31 | INFO     | laxmi_bank:ask_agent:50 - ask_agent called | session_id=default-session | question='how to register'
+2026-07-30 16:37:31 | INFO     | laxmi_bank:agent_node:49 - agent_node invoked | history_length=1
+2026-07-30 16:37:32 | INFO     | laxmi_bank:agent_node:54 - agent_node requested tool call(s): [{'name': 'search_bank_faq', 'args': {'query': 'how to register mobile money app registration'}, 'id': 'call_77XyjAxFB77G6iaci55AwR09', 'type': 'tool_call'}]
+2026-07-30 16:37:32 | INFO     | laxmi_bank:should_continue:70 - should_continue -> routing to 'tools'
+2026-07-30 16:37:32 | INFO     | laxmi_bank:search_bank_faq:20 - search_bank_faq called | query='how to register mobile money app registration'
+2026-07-30 16:37:33 | INFO     | laxmi_bank:search_bank_faq:34 - search_bank_faq returned 4 result(s) for query: 'how to register mobile money app registration'
+2026-07-30 16:37:33 | INFO     | laxmi_bank:agent_node:49 - agent_node invoked | history_length=3
+2026-07-30 16:37:35 | INFO     | laxmi_bank:agent_node:56 - agent_node produced final answer: You can register for **Laxmi Sunrise Mobile Money** in any of these ways:
+
+1. **Visit your nearest Laxmi Sunrise Bank branch** and sign up.
+2. **Apply online** at **www.laxmisunrise.com**.
+3. **Downlo
+2026-07-30 16:37:35 | INFO     | laxmi_bank:should_continue:73 - should_continue -> routing to END
+2026-07-30 16:37:35 | INFO     | laxmi_bank:ask_agent:58 - ask_agent returning answer | session_id=default-session | answer='You can register for **Laxmi Sunrise Mobile Money** in any of these ways:
+
+1. **Visit your nearest Laxmi Sunrise Bank branch** and sign up.
+2. **Apply online** at **www.laxmisunrise.com**.
+3. **Downlo'
+2026-07-30 16:38:00 | INFO     | laxmi_bank:ask_question:116 - POST /ask | session_id=default-session | question='where is the bank?'
+2026-07-30 16:38:00 | INFO     | laxmi_bank:ask_agent:50 - ask_agent called | session_id=default-session | question='where is the bank'
+2026-07-30 16:38:00 | INFO     | laxmi_bank:agent_node:49 - agent_node invoked | history_length=5
+2026-07-30 16:38:01 | INFO     | laxmi_bank:agent_node:54 - agent_node requested tool call(s): [{'name': 'search_bank_faq', 'args': {'query': 'where is the bank branch location nearest branch address'}, 'id': 'call_FuphwohnGlY65xCgSDtKUauF', 'type': 'tool_call'}]
+2026-07-30 16:38:01 | INFO     | laxmi_bank:should_continue:70 - should_continue -> routing to 'tools'
+2026-07-30 16:38:01 | INFO     | laxmi_bank:search_bank_faq:20 - search_bank_faq called | query='where is the bank branch location nearest branch address'
+2026-07-30 16:38:01 | INFO     | laxmi_bank:search_bank_faq:34 - search_bank_faq returned 4 result(s) for query: 'where is the bank branch location nearest branch address'
+2026-07-30 16:38:01 | INFO     | laxmi_bank:agent_node:49 - agent_node invoked | history_length=7
+2026-07-30 16:38:03 | INFO     | laxmi_bank:agent_node:56 - agent_node produced final answer: I’m sorry, I couldn’t find a specific bank branch address or location in the FAQ data.
+
+The FAQ only mentions visiting your **nearest branch**, but does not provide branch locations. If you’d like, I 
+2026-07-30 16:38:03 | INFO     | laxmi_bank:should_continue:73 - should_continue -> routing to END
+2026-07-30 16:38:03 | INFO     | laxmi_bank:ask_agent:58 - ask_agent returning answer | session_id=default-session | answer='I’m sorry, I couldn’t find a specific bank branch address or location in the FAQ data.
+
+The FAQ only mentions visiting your **nearest branch**, but does not provide branch locations. If you’d like, I '
