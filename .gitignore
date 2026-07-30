@@ -25,5 +25,9 @@ chroma_db/
 .DS_Store
 Thumbs.db
 
+# logs
+logs/
+*.log
+
 # Jupyter notebooks checkpoints
 .ipynb_checkpoints/
