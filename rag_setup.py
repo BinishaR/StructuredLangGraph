@@ -1,13 +1,10 @@
-# rag_setup.py
 import pandas as pd
-import os
-from dotenv import load_dotenv
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from langchain_chroma import Chroma
-
-load_dotenv()
+from config.logger import logger
+from config.settings import settings
 
 
 def load_csv_as_documents(csv_path: str, source_name: str) -> list[Document]:
@@ -32,7 +29,7 @@ def load_csv_as_documents(csv_path: str, source_name: str) -> list[Document]:
         )
         documents.append(doc)
 
-    print(f"Loaded {len(documents)} documents from {source_name}")
+    logger.info(f"Loaded {len(documents)} documents from {source_name}")
     return documents
 
 
@@ -48,14 +45,12 @@ def chunk_documents(documents: list[Document]) -> list[Document]:
     )
 
     chunks = splitter.split_documents(documents)
-    print(f"Split into {len(chunks)} chunks")
+    logger.info(f"Split into {len(chunks)} chunks")
     return chunks
-
 
 #  OpenAI Embeddings
 def get_embeddings():
-    return OpenAIEmbeddings()
-
+    return OpenAIEmbeddings(api_key=settings.openai_api_key)
 
 # Chroma Vector Database
 def build_vectorstore(chunks: list[Document]) -> Chroma:
@@ -67,13 +62,13 @@ def build_vectorstore(chunks: list[Document]) -> Chroma:
 
         embedding=embeddings,
 
-        persist_directory="./chroma_db",
+        persist_directory=settings.chroma_persist_dir,
 
-        collection_name="bank_faqs"
+        collection_name=settings.chroma_collection_name
 
     )
 
-    print(f"Vectorstore built with {vectorstore._collection.count()} vectors")
+    logger.info(f"Vectorstore built with {vectorstore._collection.count()} vectors")
     return vectorstore
 
 
@@ -82,12 +77,12 @@ def load_vectorstore() -> Chroma:
     embeddings = get_embeddings()
 
     vectorstore = Chroma(
-        persist_directory="./chroma_db",
+        persist_directory=settings.chroma_persist_dir,
         embedding_function=embeddings,
-        collection_name="bank_faqs"
+        collection_name=settings.chroma_collection_name
     )
 
-    print(f"Loaded vectorstore with {vectorstore._collection.count()} vectors")
+    logger.info(f"Loaded vectorstore with {vectorstore._collection.count()} vectors")
     return vectorstore
 
 
@@ -98,7 +93,7 @@ def setup_rag():
     docs_wonder = load_csv_as_documents("data/WonderWomanSavings.csv", "wonder")
 
     all_docs = docs_general + docs_mobile + docs_wonder
-    print(f"\nTotal documents: {len(all_docs)}")
+    logger.info(f"Total documents: {len(all_docs)}")
     chunks = chunk_documents(all_docs)
     vectorstore = build_vectorstore(chunks)
     return vectorstore
@@ -109,18 +104,16 @@ def get_retriever(vectorstore: Chroma):
     return vectorstore.as_retriever(
         search_type="similarity",
 
-        search_kwargs={"k": 4}
+        search_kwargs={"k": settings.retriever_k}
     )
 
 
 if __name__ == "__main__":
 
     vectorstore = setup_rag()
-    print("\nRAG setup complete! Chroma DB saved to ./chroma_db")
+    logger.info("RAG setup complete! Chroma DB saved to ./chroma_db")
     retriever = get_retriever(vectorstore)
     results = retriever.invoke("what is mobile money")
-    print(f"\nTest search returned {len(results)} results")
+    logger.info(f"Test search returned {len(results)} results")
     for doc in results:
-        print(f"Source: {doc.metadata['source']}")
-        print(f"Content: {doc.page_content[:100]}...")
-        print()
+        logger.info(f"Source: {doc.metadata['source']} | Content: {doc.page_content[:100]}...")

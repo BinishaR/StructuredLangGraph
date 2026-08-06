@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "laxmi-sunrise-bank-assistant"
+version = "0.1.0"
+description = "LangGraph-based customer support assistant for Laxmi Sunrise Bank Nepal"
+authors = ["Binisha <bini2@gmail.com>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python=">=3.13,<3.15"
+
+fastapi = "0.140.7"
+uvicorn = { extras = ["standard"], version = "0.51.0" }
+
+langchain = "1.3.14"
+langchain-core = "1.5.1"
+langchain-openai = "1.4.1"
+langchain-chroma = "1.1.0"
+langchain-text-splitters = "1.1.2"
+langgraph = "1.2.9"
+langgraph-checkpoint-redis = "0.5.1"
+redis = "7.4.1"
+
+pandas = "3.0.5"
+python-dotenv = "1.2.2"
+pydantic = "2.13.4"
+pydantic-settings = "2.14.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

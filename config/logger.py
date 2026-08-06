@@ -1,18 +1,3 @@
-# config/logger.py
-"""
-Centralized logging setup.
-
-Import `logger` from this module anywhere in the project instead of using
-print(). Built on Python's standard `logging` module, so no extra
-dependency is required.
-
-Usage:
-    from config.logger import logger
-    logger.info("Something happened")
-    logger.warning("Something looks off")
-    logger.error("Something failed")
-"""
-
 import logging
 import sys
 from pathlib import Path
@@ -27,8 +12,6 @@ _DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
 def _build_logger(name: str = "laxmi_bank") -> logging.Logger:
     log = logging.getLogger(name)
 
-    # Avoid attaching duplicate handlers if this module gets imported
-    # more than once (e.g. via multiple entry points).
     if log.handlers:
         return log
 

@@ -3,7 +3,6 @@
 
 from langgraph.graph import MessagesState
 
-
 class AgentState(MessagesState):
     """
     Extends LangGraph's built-in MessagesState (which already provides
@@ -11,4 +10,4 @@ class AgentState(MessagesState):
     the graph needs to track.
     """
 
-    context: list[str]
+    

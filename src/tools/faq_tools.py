@@ -1,6 +1,3 @@
-# src/tools/faq_tools.py
-"""All @tool-decorated functions the agent can call."""
-
 from langchain.tools import tool
 from src.rag.retriever import retriever_manager
 from config.logger import logger
@@ -64,8 +61,6 @@ def get_faq_topics() -> str:
    - Account benefits and features
    - Interest rates
    - Special offers for women
-
 Ask me anything about these topics!"""
-
 
 tools = [search_bank_faq, get_faq_topics]

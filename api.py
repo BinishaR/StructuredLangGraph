@@ -1,9 +1,9 @@
 import re
 import secrets
-
+import uuid
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, Header, HTTPException
 from fastapi.responses import PlainTextResponse
-
 from config.logger import logger
 from config.settings import settings
 from schemas import (
@@ -13,11 +13,19 @@ from schemas import (
     UpdateVectorstoreResponse,
 )
 from src.graph.builder import ask_agent, graph
+from src.graph.checkpointer import checkpointer_cm
 from src.nodes.agent_nodes import MODEL_NAME
 from src.rag.retriever import retriever_manager
 from src.tools.faq_tools import tools
 
-app = FastAPI(title=settings.api_title)
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    yield
+    logger.info("Shutting down — closing Redis checkpointer connection")
+    checkpointer_cm.__exit__(None, None, None)
+
+app = FastAPI(title=settings.api_title, lifespan=lifespan)
 
 
 @app.post(
@@ -33,8 +41,7 @@ app = FastAPI(title=settings.api_title)
 )
 def ask_question(query: UserQuery):
     clean_question = re.sub(r"[?.!,;:'\"]", "", query.question).strip()
-    session_id = query.session_id or "default-session"
-
+    session_id = query.session_id or str(uuid.uuid4())
     logger.info(f"POST /ask | session_id={session_id} | question='{query.question}'")
 
     try:
@@ -47,7 +54,7 @@ def ask_question(query: UserQuery):
             status="success",
             question=query.question,
             answer=answer,
-            session_id=query.session_id,
+            session_id=session_id,
         )
 
     except Exception as e:
@@ -97,7 +104,12 @@ def update_vectorstore(
     x_update_key: str = Header(..., alias="X-Update-Key"),
 ):
     """
-    Rebuild the Chroma vectorstore 
+    Rebuild the Chroma vectorstore from the CSVs in data/, replacing whatever
+    is currently persisted. Requires the X-Update-Key header to match
+    UPDATE_API_KEY from .env.
+
+    Use this instead of committing chroma_db/ to git: run this once after
+    each deploy, or whenever the source CSVs change.
     """
     if not secrets.compare_digest(x_update_key, settings.update_api_key):
         logger.warning("POST /update-vectorstore | rejected: invalid update key")
