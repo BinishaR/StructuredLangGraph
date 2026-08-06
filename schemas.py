@@ -1,4 +1,5 @@
 from typing import Optional
+
 from pydantic import BaseModel, Field
 
 class UserQuery(BaseModel):
@@ -19,11 +20,12 @@ class UserQuery(BaseModel):
     model_config = {
         "json_schema_extra": {
             "example": {
-                "question": "What is mobile money?",
-                "session_id": "customer-001",
+                "question": "",
+                "session_id": "",
             }
         }
     }
+
 
 class BotResponse(BaseModel):
     """Successful response from the bank assistant."""
@@ -50,13 +52,14 @@ class BotResponse(BaseModel):
 
 class ErrorResponse(BaseModel):
     """Error response."""
-
     status: str = "error"
     message: str
     detail: Optional[str] = None
-    
+
+
 class UpdateVectorstoreResponse(BaseModel):
     """Response after a vectorstore rebuild."""
+
     status: str = Field(default="success")
     message: str
     vector_count: int

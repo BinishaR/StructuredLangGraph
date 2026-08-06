@@ -1,17 +1,22 @@
-"""Agent construction via create_agent(), and the public ask_agent() entry point."""
-
 from langchain.agents import create_agent
 from langchain_core.messages import HumanMessage
+from langgraph.graph import MessagesState
 from config.logger import logger
-from src.graph.checkpointer import checkpointer
-from src.graph.state import AgentState
-from src.core.prompts import  SYSTEM_PROMPT
 from src.core.llm import model
+from src.core.prompts import SYSTEM_PROMPT
+from src.graph.checkpointer import checkpointer
 from src.tools.faq_tools import tools
+
+class AgentState(MessagesState):
+    """
+    Extends LangGraph's built-in MessagesState (which already provides
+    a `messages` field with add_messages reducer function. 
+    """
 
 
 def build_graph():
     logger.info("Building agent via create_agent()...")
+
     compiled_graph = create_agent(
         model=model,
         tools=tools,
@@ -23,10 +28,10 @@ def build_graph():
     logger.info("Agent built successfully")
     return compiled_graph
 
+
 graph = build_graph()
 
 def ask_agent(question: str, session_id: str = "default") -> str:
-    """Run a single question through the agent and return the final answer text."""
     config = {
         "configurable": {"thread_id": session_id},
         "recursion_limit": 10,
@@ -41,7 +46,6 @@ def ask_agent(question: str, session_id: str = "default") -> str:
 
     answer = result["messages"][-1].content
     logger.info(f"ask_agent returning answer | session_id={session_id} | answer='{str(answer)[:200]}'")
-
     return answer
 
 
