@@ -3,7 +3,6 @@ from src.rag.retriever import retriever_manager
 from config.logger import logger
 # from src.rag.retriever import retriever
 
-
 @tool
 def search_bank_faq(query: str) -> str:
     """

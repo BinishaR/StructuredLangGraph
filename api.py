@@ -14,10 +14,9 @@ from schemas import (
 )
 from src.graph.builder import ask_agent, graph
 from src.graph.checkpointer import checkpointer_cm
-from src.nodes.agent_nodes import MODEL_NAME
+from src.core.llm import MODEL_NAME
 from src.rag.retriever import retriever_manager
 from src.tools.faq_tools import tools
-
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

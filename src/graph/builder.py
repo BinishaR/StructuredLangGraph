@@ -5,7 +5,8 @@ from langchain_core.messages import HumanMessage
 from config.logger import logger
 from src.graph.checkpointer import checkpointer
 from src.graph.state import AgentState
-from src.nodes.agent_nodes import model, SYSTEM_PROMPT
+from src.core.prompts import  SYSTEM_PROMPT
+from src.core.llm import model
 from src.tools.faq_tools import tools
 
 
